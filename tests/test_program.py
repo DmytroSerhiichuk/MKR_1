@@ -1,3 +1,4 @@
+import os
 import pytest
 from main import read_lines
 from main import filter_lines
@@ -27,3 +28,21 @@ def test_read_lines(prepered_file):
 ])
 def test_filter_lines(lines, keyword, result):
     assert filter_lines(lines, keyword) == result
+
+@pytest.mark.parametrize('lines, output', [
+    (
+        [
+            'hello world test\n',
+            'red blue test green\n',
+            'end test finall\n'
+        ],
+        'test_filtered.txt'
+    )
+])
+def test_save_lines(lines, output):
+    save_lines(lines, output)
+
+    assert os.path.isfile(output)
+
+    with open(output, 'r') as file:
+        assert file.readlines() == lines
