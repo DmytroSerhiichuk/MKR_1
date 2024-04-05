@@ -48,6 +48,14 @@ def test_filter_lines(lines, keyword, result):
             'end test finall\n'
         ],
         'test_filtered.txt'
+    ),
+    (
+        [
+            'red blue\n',
+            'green red white\n',
+            'end red\n'
+        ],
+        'test_filtered.txt'
     )
 ])
 def test_save_lines(lines, output):
