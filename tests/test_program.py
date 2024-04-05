@@ -24,6 +24,17 @@ def test_read_lines(prepered_file):
     [
         'word key blue\n',
         'rat word text\n'
+    ]),
+    ([
+        'one two three\n',
+        'four five six\n',
+        'seven one nine\n',
+        'ten eleven\n'
+    ],
+    'one',
+    [
+        'one two three\n',
+        'seven one nine\n',
     ])
 ])
 def test_filter_lines(lines, keyword, result):
